@@ -1,0 +1,11 @@
+{
+  "noConfig": "请先在区块设置中配置 Dashboard ID",
+  "Metabase Dashboard": "Metabase 仪表盘",
+  "Metabase Dashboard Settings": "Metabase 仪表盘设置",
+  "Saved successfully": "保存成功",
+  "Edit Metabase Dashboard": "编辑 Metabase 仪表盘",
+  "Dashboard ID": "仪表盘 ID",
+  "Base URL": "基础 URL",
+  "Secret Key": "密钥",
+  "Submit": "提交"
+}

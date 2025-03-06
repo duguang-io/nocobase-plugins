@@ -1,0 +1,12 @@
+{
+  "noConfig": "Please configure the Dashboard ID in the block settings first",
+  "Metabase Dashboard": "Metabase Dashboard",
+  "Metabase Dashboard Settings": "Metabase Dashboard Settings",
+  "Saved successfully": "Saved successfully",
+  "Edit Metabase Dashboard": "Edit Metabase Dashboard",
+  "Dashboard ID": "Dashboard ID",
+  "Base URL": "Base URL",
+  "Secret Key": "Secret Key",
+  "Submit": "Submit"
+ 
+}
