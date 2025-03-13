@@ -1,12 +1,14 @@
 {
-  "noConfig": "Please configure the Dashboard ID in the block settings first",
+  "noConfig": "Please configure the dashboard information in the block settings first",
   "Metabase Dashboard": "Metabase Dashboard",
-  "Metabase Dashboard Settings": "Metabase Dashboard Settings",
+  "Metabase Settings": "Metabase Settings",
   "Saved successfully": "Saved successfully",
-  "Edit Metabase Dashboard": "Edit Metabase Dashboard",
-  "Dashboard ID": "Dashboard ID",
+  "Edit Metabase Embed": "Edit Metabase Embed",
+  "Resource ID": "Resource ID",
   "Base URL": "Base URL",
   "Secret Key": "Secret Key",
-  "Submit": "Submit"
- 
+  "Submit": "Submit",
+  "Mode": "Mode",
+  "Dashboard": "Dashboard",
+  "Question": "Question"
 }
