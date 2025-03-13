@@ -34,7 +34,7 @@ export class PluginBlockMetabaseDashboardClient extends Plugin {
     // 注册到 pluginSettingsManager
     this.app.pluginSettingsManager.add('metabase-dashboard', {
       //title: 'Metabase Dashboard Settings',
-      title: tval("Metabase Dashboard Settings",{ ns: '@dgtech/plugin-metabase-dashboard' }),
+      title: tval("Metabase Settings",{ ns: '@dgtech/plugin-metabase-dashboard' }),
       icon: 'FormOutlined',
       Component: PluginSettingsForm,
     });
