@@ -17,5 +17,10 @@ export default {
       name: 'dashboardId',
       required: true,
     },
+    {
+      type: 'string',// metabase 类型
+      name: 'mode',
+      required: true,
+    }
   ],
 } as CollectionOptions;
