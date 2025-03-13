@@ -20,22 +20,22 @@ const commonOptions: any = {
         const { dn } = useDesignable();
 
         const onSubmit = async (values: any) => {
-          const { dashboardId } = values;
+          const { dashboardId, mode } = values;
+          
           const existingRecordId = fieldSchema['x-component-props']?.dashboardRecordId;
-          // console.log('existingRecordId', existingRecordId);
-          // console.log('dashboardId', dashboardId);
+          
           let record;
           if (existingRecordId) {
             
             const { data } = await api.resource('metabaseDashboard').update({
               filterByTk: existingRecordId,
-              values: { dashboardId },
+              values: { dashboardId, mode },
             });
             record = data?.data?.[0] || { id: existingRecordId };
           } else {
            
             const { data } = await api.resource('metabaseDashboard').create({
-              values: { dashboardId },
+              values: { dashboardId, mode },
             });
             record = data?.data;
           }
@@ -73,16 +73,27 @@ const commonOptions: any = {
         };
         const t = useT();
         return {
-          title: t('Edit Metabase Dashboard'),
+          title: t('Edit Metabase Embed'),
           asyncGetInitialValues,
           schema: {
             type: 'object',
             properties: {
               dashboardId: {
-                title: t('Dashboard ID'),
+                title: t('Resource ID'),
                 'x-decorator': 'FormItem',
                 'x-component': 'Input',
                 required: true,
+              },
+              mode: {
+                title: t('Mode'),
+                'x-component': 'Radio.Group',
+                'x-decorator': 'FormItem',
+                required: true,
+                default: 'dashboard',
+                enum: [
+                  { value: 'dashboard', label: t('Dashboard') },
+                  { value: 'question', label: t('Question') },
+                ],
               },
             },
           } as ISchema,
