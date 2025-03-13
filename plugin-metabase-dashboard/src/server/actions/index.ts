@@ -17,6 +17,7 @@ export async function getEmbedUrl(ctx: Context, next: Next) {
 
 
   const dashboardId = record.get('dashboardId');
+  const mode = record.get('mode');
 
   
   
@@ -32,17 +33,32 @@ export async function getEmbedUrl(ctx: Context, next: Next) {
   const METABASE_SITE_URL = configRecord.get('baseUrl');
   const METABASE_SECRET_KEY = configRecord.get('secretKey');
   
+  let payload;
+    if(mode === 'dashboard'){
 
-  const payload = {
-    resource: { dashboard: Number(dashboardId) }, 
-    params: {},
-    exp: Math.round(Date.now() / 1000) + 10 * 60,
-  };
+      payload = {
+        resource: { dashboard: Number(dashboardId) }, 
+        params: {},
+        exp: Math.round(Date.now() / 1000) + 10 * 60,
+      };
+    } else if(mode === 'question'){
+      payload = {
+        resource: { question: Number(dashboardId) }, 
+        params: {},
+        exp: Math.round(Date.now() / 1000) + 10 * 60,
+      };
+    }
 
   
   const token = jwt.sign(payload, METABASE_SECRET_KEY);
 
-  const iframeUrl = `${METABASE_SITE_URL}/embed/dashboard/${token}#bordered=true&titled=true`;
+  let iframeUrl;
+  if(mode === 'dashboard'){
+    iframeUrl = `${METABASE_SITE_URL}/embed/dashboard/${token}#bordered=true&titled=true`;
+  } else if(mode === 'question'){
+    iframeUrl = `${METABASE_SITE_URL}/embed/question/${token}#bordered=true&titled=true`;
+  }
+  
 
 
   ctx.body = iframeUrl;
