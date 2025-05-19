@@ -1,5 +1,5 @@
 {
-  "noConfig": "请先在区块设置中配置 Dashboard 信息!",
+  "noConfig": "请先在区块设置中配置 Dashboard 信息",
   "Metabase Dashboard": "Metabase 仪表盘",
   "Metabase Settings": "Metabase 设置",
   "Saved successfully": "保存成功",
@@ -10,5 +10,11 @@
   "Submit": "提交",
   "Mode": "类型",
   "Dashboard": "仪表盘",
-  "Question": "问题"
-}
+  "Question": "问题",
+  "Expiration (minutes)": "过期时间 (分钟)",
+  "Refresh Interval (seconds)": "刷新间隔 (秒)",
+  "Disable Refresh": "关闭刷新",
+  "Enable Refresh": "开启刷新",
+  "Refresh Settings": "刷新设置",
+  "Refresh Placeholder": "请输入刷新间隔 (秒)"
+} 

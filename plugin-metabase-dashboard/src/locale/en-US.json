@@ -10,5 +10,11 @@
   "Submit": "Submit",
   "Mode": "Mode",
   "Dashboard": "Dashboard",
-  "Question": "Question"
+  "Question": "Question",
+  "Expiration (minutes)": "Expiration (minutes)",
+  "Refresh Interval (seconds)": "Refresh Interval (seconds)",
+  "Disable Refresh": "Disable Refresh",
+  "Enable Refresh": "Enable Refresh",
+  "Refresh Settings": "Refresh Settings",
+  "Refresh Placeholder": "Please enter the refresh interval (seconds)"
 }
