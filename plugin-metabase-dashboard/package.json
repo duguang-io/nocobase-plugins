@@ -4,7 +4,7 @@
   "displayName.zh-CN": "Metabase仪表盘",
   "description": "Create and manage iframes on the page for embedding metabase reports.",
   "description.zh-CN": "在页面上创建和管理iframe，用于嵌入metabase报表。",
-  "version": "1.5.16",
+  "version": "1.5.17",
   "main": "dist/server/index.js",
   "dependencies": {
     "i18next": "22.5.1",
