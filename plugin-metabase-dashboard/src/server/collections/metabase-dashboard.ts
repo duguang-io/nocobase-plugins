@@ -21,6 +21,16 @@ export default {
       type: 'string',// metabase 类型
       name: 'mode',
       required: true,
+    },
+    {
+      type: 'boolean', // 是否启用刷新
+      name: 'refreshEnabled',
+      defaultValue: false,
+      required: true,
+    },
+    {
+      type: 'integer',  // 刷新间隔
+      name: 'refresh',
     }
   ],
 } as CollectionOptions;
