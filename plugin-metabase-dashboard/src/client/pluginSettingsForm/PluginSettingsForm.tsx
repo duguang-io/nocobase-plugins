@@ -49,6 +49,22 @@ const metabaseDashboardConfigCollection = {
         'x-component': 'Password',
       },
     },
+    {
+      type: 'number',
+      name: 'expiration',
+      interface: 'inputNumber',
+      uiSchema: {
+        type: 'number',
+        title: 'Expiration (minutes)',
+        required: true,
+        'x-component': 'InputNumber',
+        default: 10,
+        'x-component-props': {
+          min: 1,
+          precision: 0,
+        },
+      },
+    },
   ],
 };
 
@@ -80,6 +96,15 @@ const schema = (t : any ): ISchema => ({
           title: t('Secret Key'),
           'x-decorator': 'FormItem',
           'x-component': 'CollectionField',
+        },
+        expiration: {
+          title: t('Expiration (minutes)'),
+          'x-decorator': 'FormItem',
+          'x-component': 'CollectionField',
+          default: 10,
+          // 'x-decorator-props': {
+          //   tooltip: t(''),
+          // },
         },
         footer: {
           type: 'void',
