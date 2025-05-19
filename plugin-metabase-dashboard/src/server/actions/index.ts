@@ -18,7 +18,7 @@ export async function getEmbedUrl(ctx: Context, next: Next) {
 
   const dashboardId = record.get('dashboardId');
   const mode = record.get('mode');
-
+  const refresh = record.get('refresh');
   
   
   //从 "metabaseDashboardConfiguration" 表中读取 baseUrl, secretKey
@@ -32,6 +32,8 @@ export async function getEmbedUrl(ctx: Context, next: Next) {
   }
   const METABASE_SITE_URL = configRecord.get('baseUrl');
   const METABASE_SECRET_KEY = configRecord.get('secretKey');
+  // 获取新增配置
+  const expiration = configRecord.get('expiration') || 10; // 默认10分钟
   
   let payload;
     if(mode === 'dashboard'){
@@ -39,13 +41,13 @@ export async function getEmbedUrl(ctx: Context, next: Next) {
       payload = {
         resource: { dashboard: Number(dashboardId) }, 
         params: {},
-        exp: Math.round(Date.now() / 1000) + 10 * 60,
+        exp: Math.round(Date.now() / 1000) + expiration * 60,
       };
     } else if(mode === 'question'){
       payload = {
         resource: { question: Number(dashboardId) }, 
         params: {},
-        exp: Math.round(Date.now() / 1000) + 10 * 60,
+        exp: Math.round(Date.now() / 1000) + expiration * 60,
       };
     }
 
@@ -54,13 +56,14 @@ export async function getEmbedUrl(ctx: Context, next: Next) {
 
   let iframeUrl;
   if(mode === 'dashboard'){
-    iframeUrl = `${METABASE_SITE_URL}/embed/dashboard/${token}#bordered=true&titled=true`;
+    iframeUrl = `${METABASE_SITE_URL}/embed/dashboard/${token}#bordered=true&titled=true${refresh ? '&refresh=' + refresh : ''}`;
   } else if(mode === 'question'){
-    iframeUrl = `${METABASE_SITE_URL}/embed/question/${token}#bordered=true&titled=true`;
+    iframeUrl = `${METABASE_SITE_URL}/embed/question/${token}#bordered=true&titled=true${refresh ? '&refresh=' + refresh : ''}`;
   }
   
-
-
+  // console.log('--------------------------------');
+  // console.log('iframeUrl', iframeUrl);
+  // console.log('--------------------------------');
   ctx.body = iframeUrl;
   ctx.withoutDataWrapping = true; 
   ctx.set({
